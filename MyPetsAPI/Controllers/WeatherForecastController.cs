@@ -27,8 +27,9 @@ namespace MyPetsAPI.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            IServiceGet<PersonDto,null> serviceUser = new ServiceUser();
-            serviceUser.Get()
+            //IServiceGet<PersonDto,null> serviceUser = new ServiceUser();
+            //serviceUser.Get()
+            return null;
         }
     }
 }
