@@ -1,0 +1,11 @@
+﻿namespace MyPetsCore.DTO
+{
+    class EmployeeDto : PersonDto
+    {
+
+        public EmployeeDto(int? key, string lastName, string forName, string email, string address, uint zipCode, string city, string phoneNumber) : 
+            base(key, lastName, forName, email, address, zipCode, city, phoneNumber)
+        {
+        }
+    }
+}
