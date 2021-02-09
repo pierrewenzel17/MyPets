@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace MyPetsAPI.Services.Base
 {
     public interface IServiceUpdate<DTO,DAO> where DTO : new() where DAO : new()
     {
-        public sealed void Update(DTO dto)
+        public sealed bool Update(DTO dto)
         {
             try
             {
@@ -14,7 +15,8 @@ namespace MyPetsAPI.Services.Base
             {
                 Console.WriteLine("It's a exception");
             }
+
+            return false;
         }
-        
     }
 }

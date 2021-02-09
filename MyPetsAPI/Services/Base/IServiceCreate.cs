@@ -7,7 +7,7 @@ namespace MyPetsAPI.Services.Base
 {
     public interface IServiceCreate<DTO, DAO> where  DTO : new() where DAO : new()
     {
-        public sealed void Create(DTO dto)
+        public sealed bool Create(DTO dto)
         {
             try
             {
@@ -19,6 +19,7 @@ namespace MyPetsAPI.Services.Base
                 
             }
 
+            return false;
         }
     }
 }
