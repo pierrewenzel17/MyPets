@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyPetsCore.DTO
 {
-    class AdminDto : EmployeeDto
+    public class AdminDto : EmployeeDto
     {
+        public AdminDto() : base() { }
+        
         public AdminDto(int? key, string lastName, string forName, string email, string address, uint zipCode, string city, string phoneNumber) : 
             base(key, lastName, forName, email, address, zipCode, city, phoneNumber)
         {

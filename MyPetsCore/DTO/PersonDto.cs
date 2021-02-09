@@ -2,8 +2,10 @@
 
 namespace MyPetsCore.DTO
 {
-    internal abstract class PersonDto
+    public abstract class PersonDto
     {
+        protected PersonDto() { }
+
         protected PersonDto(int? key, string lastName, string forName, string email, string address, uint zipCode, string city, string phoneNumber)
         {
             Key = key;
