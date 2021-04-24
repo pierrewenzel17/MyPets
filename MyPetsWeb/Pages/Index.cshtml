@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    string HierarchyMap(int key)
+    {
+        var returnVal = "";
+        switch (key)
+        {
+            case 1:
+                returnVal =  "Bénévole"; break;
+            case 2:
+                returnVal = "Salarié"; break;
+            case 3:
+                returnVal = "Administrateur"; break;
+        }
+        return returnVal;
+    }
+}
+<div class="row">
+    <div class="col-md-10 mb-4 mt-3">
+        <h1 class="display-4">Administration des personnes</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead style="background-color: #AED581;">
+            <tr>
+                <th scope="col" class="pb-3">#</th>
+                <th scope="col" class="pb-3">Prénom</th>
+                <th scope="col" class="pb-3">Nom</th>
+                <th scope="col" class="pb-3">Email</th>
+                <th scope="col" class="pb-3">Rue</th>
+                <th scope="col" class="pb-3">Code postal</th>
+                <th scope="col" class="pb-3">Ville</th>
+                <th scope="col" class="pb-3">Numéro de téléphone</th>
+                <th scope="col" class="pb-3">Hiérarchie</th>
+                <th scope="col" class="pb-3">Zone</th>
+                <th></th>
+                <th><a asp-page="Create" class="btn btn-success btn-sm btn-block">Ajouter</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var person in Model.Persons)
+            {
+                <tr>
+                    <th scope="row" class="pt-3">@person.PersonId</th>
+                    <td class="pt-3">@person.FirstName</td>
+                    <td class="pt-3">@person.LastName</td>
+                    <td class="pt-3">@person.Email</td>
+                    <td class="pt-3">@person.Address</td>
+                    <td class="pt-3">@person.ZipCode</td>
+                    <td class="pt-3">@person.City</td>
+                    <td class="pt-3">@person.PhoneNumber</td>
+                    <td class="pt-3">@HierarchyMap(person.Hierarchy)</td>
+                    <td class="pt-3">@person.Zone</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@person.PersonId" class="btn btn-info btn-sm btn-block">Modifier</a>
+                    </td>
+                    <td>
+                        <a asp-page="Index" asp-route-id="@person.PersonId" asp-page-handler="delete" class="btn btn-danger btn-sm btn-block">Supprimer</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+

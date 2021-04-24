@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage;
+using Pomelo.EntityFrameworkCore.MySql;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 #nullable disable
 
@@ -30,7 +33,11 @@ namespace MyPetsAPI.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("server=localhost;port=3306;user=api;password=mdp;database=MyPets");
+                optionsBuilder.UseMySQL("server=MyPets-Database;port=3306;user=api;password=mdp;database=MyPets",
+                    mySqlOptions =>
+                    {
+                        mySqlOptions.ExecutionStrategy(c => new MySqlRetryingExecutionStrategy(c));
+                    });
             }
         }
 

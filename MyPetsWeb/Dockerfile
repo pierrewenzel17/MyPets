@@ -2,20 +2,21 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 80/tcp
+EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["MyPets/MyPetsAPI/MyPetsAPI.csproj", "MyPets/MyPetsAPI/"]
-RUN dotnet restore "MyPets/MyPetsAPI/MyPetsAPI.csproj"
+COPY ["MyPetsWeb/MyPetsWeb.csproj", "MyPetsWeb/"]
+RUN dotnet restore "MyPetsWeb/MyPetsWeb.csproj"
 COPY . .
-WORKDIR "/src/MyPets/MyPetsAPI"
-RUN dotnet build "MyPetsAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/MyPetsWeb"
+RUN dotnet build "MyPetsWeb.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "MyPetsAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "MyPetsWeb.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MyPetsAPI.dll"]
+ENTRYPOINT ["dotnet", "MyPetsWeb.dll"]

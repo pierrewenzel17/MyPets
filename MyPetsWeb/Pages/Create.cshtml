@@ -1,0 +1,132 @@
+﻿@page
+@model MyPetsWeb.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" class="container">
+            <div class="row">
+                <h1 class="display-4 ml-3">Création d'une personne</h1>
+            </div>
+            <hr/>
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.FirstName">Prénom</label>
+                        <input asp-for="Person.FirstName" class="form-control" placeholder="Prénom"/>
+                        <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.LastName">Nom</label>
+                        <input asp-for="Person.LastName" class="form-control" placeholder="Nom"/>
+                        <span asp-validation-for="Person.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.Email">Adresse email</label>
+                        <input asp-for="Person.Email" class="form-control" placeholder="Adresse email" type="email"/>
+                        <span asp-validation-for="Person.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.PhoneNumber"> Numéro de téléphone</label>
+                        <input asp-for="Person.PhoneNumber" class="form-control" placeholder="Numéro de téléphone"/>
+                        <span asp-validation-for="Person.PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label asp-for="Person.Address">Rue</label>
+                        <input asp-for="Person.Address" class="form-control" placeholder="Numéro de voie et rue"/>
+                        <span asp-validation-for="Person.Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Person.ZipCode">Code postal</label>
+                        <input asp-for="Person.ZipCode" class="form-control" placeholder="Code postal"/>
+                        <span asp-validation-for="Person.ZipCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.City">Ville</label>
+                        <input asp-for="Person.City" class="form-control" placeholder="Ville"/>
+                        <span asp-validation-for="Person.City" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.Zone">Département</label>
+                        <input asp-for="Person.Zone" class="form-control" placeholder="Département"/>
+                        <span asp-validation-for="Person.Zone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.Hierarchy">Hiérarchie</label>
+                        @{
+                            List<SelectListItem> listItems= new List<SelectListItem>();
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "Benévole",
+                                Value = "1"
+                            });
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "Salarié",
+                                Value = "2",
+                                Selected = true
+                            });
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "Administrateur",
+                                Value = "3"
+                            });
+                        }
+                        @Html.DropDownListFor(model => model.Person.Hierarchy, listItems, htmlAttributes: new { @class = "form-control" })
+                        <span asp-validation-for="Person.Hierarchy" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Person.Password">Mot de passe</label>
+                        <input asp-for="Person.Password" class="form-control" placeholder="Mot de passe" type="password"/>
+                        <span asp-validation-for="Person.Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="Ajouté" class="btn btn-success btn-block"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a asp-page="Index" class="btn btn-secondary btn-block">Retour à la liste</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
