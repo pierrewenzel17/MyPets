@@ -31,12 +31,12 @@ namespace MyPetsAPI.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public ActionResult<PersonDto> Get([FromRoute] int id)
+        public ActionResult<PersonDto> Get([FromRoute] int? id)
         {
             try
             {
-                if (id == 0) return BadRequest("Id can't be null");
-                var person = _unitOfWork.Persons.Get(id);
+                if (id is 0 or null) return BadRequest("Id can't be null");
+                var person = _unitOfWork.Persons.Get((int) id);
                 if (person is null) return NotFound("Not found person with id = " + id);
                 return Ok(new PersonMapper().ToDto(person));
             }
@@ -47,13 +47,13 @@ namespace MyPetsAPI.Controllers
         }
 
         [HttpGet]
-        [Route("investigation/{id:int}")]
-        public ActionResult<InvestigationPersonDto> GetInvestigationPerson([FromRoute] int id)
+        [Route("Investigation/{id:int}")]
+        public ActionResult<InvestigationPersonDto> GetInvestigationPerson([FromRoute] int? id)
         {
             try
             {
-                if (id == 0) return BadRequest("Id can't be null");
-                var person = _unitOfWork.InvestigationPersons.Get(id);
+                if (id is 0 or null) return BadRequest("Id can't be null");
+                var person = _unitOfWork.InvestigationPersons.Get((int) id);
                 if (person is null) return NotFound("Not found person with id = " + id);
                 return Ok(new InvestigationPersonMapper().ToDto(person));
             }
@@ -78,7 +78,7 @@ namespace MyPetsAPI.Controllers
         }
 
         [HttpGet]
-        [Route("investigation")]
+        [Route("Investigation")]
         public ActionResult<InvestigationPersonDto> GetInvestigationPersons()
         {
             try
@@ -97,6 +97,7 @@ namespace MyPetsAPI.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<PersonDto> Post([FromBody] PersonDto personDto)
         {
             try
@@ -115,7 +116,7 @@ namespace MyPetsAPI.Controllers
         }
 
         [HttpPost]
-        [Route("investigation")]
+        [Route("Investigation")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<PersonDto> Create([FromBody] InvestigationPersonDto personDto)
         {
@@ -156,7 +157,7 @@ namespace MyPetsAPI.Controllers
         }
 
         [HttpPut]
-        [Route("investigation/{id:int}")]
+        [Route("Investigation/{id:int}")]
         public ActionResult<InvestigationPersonDto> Update([FromRoute] int id, [FromBody] InvestigationPersonDto personDto)
         {
             try
@@ -179,11 +180,12 @@ namespace MyPetsAPI.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
-        public ActionResult Delete([FromRoute] int id)
+        public ActionResult Delete([FromRoute] int? id)
         {
             try
             {
-                _unitOfWork.Persons.Remove(id);
+                if (id is 0 or null) return BadRequest("Id can't be null");
+                _unitOfWork.Persons.Remove((int) id);
                 _unitOfWork.Save();
                 return NoContent();
             }
@@ -194,7 +196,7 @@ namespace MyPetsAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("investigation/{id:int}")]
+        [Route("Investigation/{id:int}")]
         public ActionResult DeleteInvestigationPerson([FromRoute] int id)
         {
             try

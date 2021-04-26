@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,7 +14,7 @@ namespace MyPetsWeb.Pages
         {
             if (id is null)
                 return NotFound();
-            Person =  new PersonMapper().ToView(await new PersonWebService().GetByIdAsync((int)id));
+            Person =  new PersonMapper().ToView(await new PersonWebService().GetPersonByIdAsync((int)id));
             return Page();
         }
 
@@ -25,7 +22,7 @@ namespace MyPetsWeb.Pages
         {
             if (!ModelState.IsValid)
                 return Page();
-            await new PersonWebService().UpdateAsync(Person.PersonId, new PersonMapper().ToDto(Person));
+            await new PersonWebService().UpdatePersonAsync(Person.PersonId, new PersonMapper().ToDto(Person));
             return RedirectToPage("Index");
         }
     }

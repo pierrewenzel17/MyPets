@@ -25,13 +25,14 @@ namespace MyPetsWeb.Pages
         {
             if (id == 0)
                 return NotFound();
-            await new PersonWebService().DeleteAsync(id);
-            Persons = await new PersonWebService().GetAllAsync();
+            await new PersonWebService().DeletePersonAsync(id);
+            Persons = await new PersonWebService().GetAllPersonsAsync();
             return Page();
         }
+
         public async Task OnGetAsync()
         {
-            Persons = await new PersonWebService().GetAllAsync();
+            Persons = await new PersonWebService().GetAllPersonsAsync();
         }
     }
 }

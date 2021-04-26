@@ -21,7 +21,7 @@ namespace MyPetsWeb.Pages
         {
             if (!ModelState.IsValid)
                 return Page();
-            await new PersonWebService().CreateAsync(new PersonMapper().ToDto(Person));
+            await new PersonWebService().CreatePersonAsync(new PersonMapper().ToDto(Person));
             return RedirectToPage("Index");
         }
 

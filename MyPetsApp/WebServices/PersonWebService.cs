@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MyPetsCore.DTOs;
 
-namespace MyPetsWeb.WebServices
+namespace MyPetsApp.WebServices
 {
     public sealed class PersonWebService : WebService
     {
