@@ -8,7 +8,9 @@
         xmlns:view="clr-namespace:MyPetsApp.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="My Pets" Height="800" Width="1200">
+        Title="My Pets" Height="800" Width="1200"
+        Icon="../Assets/icon.ico"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate x:Name="userViewTemplate" DataType="{x:Type viewModels:UserViewModel}">
             <view:UserView DataContext="{Binding}"/>
@@ -20,23 +22,14 @@
             <view:InvestigationView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid Background="DarkGray">
         <!-- <controls:NavigationBar DataContext="{Binding Navigator}"/> -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid x:Name="nav_pnl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Background="#2E333A" Width="60" HorizontalAlignment="Left">
+
+        <Grid x:Name="nav_pnl" Grid.Column="0" Background="#2E333A" Width="60" HorizontalAlignment="Left">
             <DockPanel  x:Name="st_pnl">
 
                 <Grid>
@@ -161,7 +154,7 @@
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  Height="60">
+                        <StackPanel MouseLeftButtonDown="DisconnectBtn_OnClick" Orientation="Horizontal" VerticalAlignment="Bottom"  Height="60" >
                             <materialDesign:PackIcon Kind="Logout" Height="30" Width="30" Foreground="LightGray" VerticalAlignment="Center" Margin="20 0 0 0"/>
                             <TextBlock Text="Deconnexion" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
                         </StackPanel>
@@ -170,6 +163,6 @@
             </DockPanel>
         </Grid>
 
-        <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}"/>
+        <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding}"/>
     </Grid>
 </Window>

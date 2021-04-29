@@ -33,5 +33,13 @@ namespace MyPetsApp.Views
             TransitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (60 * index), 0, 0);
         }
+
+        private void DisconnectBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            Window window = new LoginView();
+            window.Show();
+
+            this.Close();
+        }
     }
 }

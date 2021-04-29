@@ -1,0 +1,38 @@
+﻿<Window x:Class="MyPetsApp.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyPetsApp.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Se connecter" Height="400" Width="600" Icon="pack://application:,,,/../Assets/icon.ico"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#2E333A">
+        <Image Source="pack://application:,,,/../Assets/logo.png" Height="100" Width="300" VerticalAlignment="Top" Margin="150,30,150,0"/>
+        <TextBox
+            x:Name="Username"
+            Height="60" Width="200"
+            FontSize="20"
+            Foreground="Orange"
+            CaretBrush="Orange"
+            FontStyle="Italic"
+            materialDesign:HintAssist.Hint="Nom d'Utilisateur"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <PasswordBox
+            x:Name="Password"
+            Height="40" Width="200"
+            FontSize="20"
+            Foreground="Orange"
+            CaretBrush="Orange"
+            FontStyle="Italic"
+            materialDesign:HintAssist.Hint="Mot de passe"
+            Margin="190,200,190,50" />
+        <Button 
+            Click="LogInBtn_OnClick"
+            Content="Se Connecter"
+            VerticalAlignment="Bottom"
+            Margin="200 0 200 20"/>
+        
+    </Grid>
+</Window>

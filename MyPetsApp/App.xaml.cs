@@ -11,8 +11,7 @@ namespace MyPetsApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            Window window = new MainWindow();
-            window.DataContext = new UserViewModel();
+            Window window = new LoginView();
             window.Show();
             base.OnStartup(e);
         }
