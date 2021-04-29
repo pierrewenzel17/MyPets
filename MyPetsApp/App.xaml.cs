@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using MyPetsApp.ViewModels;
 using MyPetsApp.Views;
 
 namespace MyPetsApp
@@ -11,7 +12,7 @@ namespace MyPetsApp
         protected override void OnStartup(StartupEventArgs e)
         {
             Window window = new MainWindow();
-            // window.DataContext = new MainViewModel();
+            window.DataContext = new UserViewModel();
             window.Show();
             base.OnStartup(e);
         }

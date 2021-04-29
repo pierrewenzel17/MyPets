@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyPetsApp"
         xmlns:viewModels="clr-namespace:MyPetsApp.ViewModels"
         xmlns:view="clr-namespace:MyPetsApp.Views"
-        xmlns:controls="clr-namespace:MyPetsApp.Views.Controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="My Pets" Height="800" Width="1200">
     <Window.Resources>
@@ -23,7 +23,7 @@
     <Grid>
         <!-- <controls:NavigationBar DataContext="{Binding Navigator}"/> -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -40,7 +40,6 @@
             <DockPanel  x:Name="st_pnl">
 
                 <Grid>
-
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="*"/>
@@ -170,15 +169,7 @@
                 </Grid>
             </DockPanel>
         </Grid>
-        <!--
-        <DockPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
-            <StackPanel>
-                <Button Content="Mon compte" Click="UserPage"/>
-                <Button Content="Personels" Click="PersonPage"/>
-                <Button Content="Enquête" Click="InvestigationPage"/>
-            </StackPanel>
-        </DockPanel>
-        -->
+
         <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}"/>
     </Grid>
 </Window>

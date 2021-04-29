@@ -33,20 +33,5 @@ namespace MyPetsApp.Views
             TransitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (60 * index), 0, 0);
         }
-
-        private void PersonPage(object sender, RoutedEventArgs e)
-        {
-            DataContext = new PersonViewModel();
-        }
-
-        private void InvestigationPage(object sender, RoutedEventArgs e)
-        {
-            DataContext = new InvestigationViewModel();
-        }
-
-        private void UserPage(object sender, RoutedEventArgs e)
-        {
-            DataContext = new UserViewModel();
-        }
     }
 }
