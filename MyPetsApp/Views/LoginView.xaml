@@ -15,7 +15,6 @@
             Height="60" Width="200"
             FontSize="20"
             Foreground="Orange"
-            CaretBrush="Orange"
             FontStyle="Italic"
             materialDesign:HintAssist.Hint="Nom d'Utilisateur"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -24,7 +23,6 @@
             Height="40" Width="200"
             FontSize="20"
             Foreground="Orange"
-            CaretBrush="Orange"
             FontStyle="Italic"
             materialDesign:HintAssist.Hint="Mot de passe"
             Margin="190,200,190,50" />
@@ -32,7 +30,7 @@
             Click="LogInBtn_OnClick"
             Content="Se Connecter"
             VerticalAlignment="Bottom"
-            Margin="200 0 200 20"/>
-        
+            Width="200"
+            Margin="0 0 0 20"/>
     </Grid>
 </Window>

@@ -116,7 +116,7 @@
 
                     <Grid Grid.Row="1">
                         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-                            <Grid x:Name="GridCursor" Background="#FF0069C0" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"></Grid>
+                            <Grid x:Name="GridCursor" Background="Orange" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
                         </materialDesign:TransitioningContent>
 
                         <!--// ListView with menu list items //-->
@@ -132,7 +132,7 @@
                                 </StackPanel>
                             </ListViewItem>
 
-                            <!--// Gestion des équipe //-->
+                            <!--// Gestion des équipes //-->
 
                             <ListViewItem Height="60">
                                 <StackPanel Orientation="Horizontal">
@@ -141,7 +141,7 @@
                                 </StackPanel>
                             </ListViewItem>
 
-                            <!--// Gestion des enquête //-->
+                            <!--// Gestion des enquêtes //-->
 
                             <ListViewItem Height="60">
                                 <StackPanel Orientation="Horizontal">
