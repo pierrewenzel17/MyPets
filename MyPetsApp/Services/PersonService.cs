@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using MyPetsApp.Models;
 using MyPetsApp.WebServices;
 using MyPetsCore.DTOs;
@@ -29,6 +31,13 @@ namespace MyPetsApp.Services
         {
             PersonWebService ws = new();
             return Map(await ws.GetPersonByIdAsync(id));
+        }
+
+        public async Task<IEnumerable<Person>> Get()
+        {
+            PersonWebService iws = new();
+            var dtos = await iws.GetAllPersonsAsync();
+            return dtos.Select(personDto => Map(personDto)).ToList();
         }
     }
 }

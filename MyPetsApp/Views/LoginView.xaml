@@ -18,7 +18,7 @@
             CaretBrush="Orange"
             FontStyle="Italic"
             materialDesign:HintAssist.Hint="Nom d'Utilisateur"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam" />
         <PasswordBox
             x:Name="Password"
             Height="40" Width="200"
