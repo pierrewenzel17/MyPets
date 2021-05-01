@@ -4,9 +4,125 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyPetsApp.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            <Label Content="Je suis une enquête"></Label>
+    <Grid  Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100px" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100px"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" 
+                   Grid.Row="0"
+                   Style="{StaticResource MaterialDesignHeadline3TextBlock}"
+                   Text="Listes des enquêtes"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="10px"/>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="40px"
+            Height="40px"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Background="#8BC34A" 
+            BorderBrush="#8BC34A"
+            Margin="0,10,0,0"
+            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+            ToolTip="MaterialDesignFloatingActionAccentButton" Cursor="Hand">
+            <materialDesign:PackIcon Kind="Plus" Width="25" Height="25" />
+        </Button>
+        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Investigations}" 
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  HeadersVisibility="Column"  
+                  IsReadOnly="True"
+                  Background="White"
+                  AlternatingRowBackground="#DCEDC8"
+                  BorderBrush="Transparent"
+                  Margin="10px, 0px">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#8BC34A" />
+                    <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},Path=Columns[0].Header,Mode=OneTime}">
+                    </Setter>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Border Height="40px">
+                                    <ContentPresenter VerticalAlignment="Center" Margin="15px, 0,0,0" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding InvestigationId}"
+                    Header="Numéro"
+                    Width="*"/>
+                <DataGridTextColumn
+                    Binding="{Binding HolderInvestigatorId.LastName}"
+                    Width="*" 
+                    Header="Enquêteur"/>
+                <DataGridTextColumn
+                    Binding="{Binding InvestigationOffenderId.LastName}"
+                    Width="*" 
+                    Header="Infracteur"/>
+                <DataGridTextColumn
+                    Binding="{Binding InvestigationPlaintiffId.LastName}"
+                    Width="*" 
+                    Header="Plaignant"/>
+                <DataGridTextColumn
+                    Binding="{Binding Reason}"
+                    Width="*" 
+                    Header="Motif"/>
+                <DataGridTextColumn
+                    Binding="{Binding Breed}"
+                    Width="*" 
+                    Header="Race"/>
+                <DataGridTextColumn
+                    Binding="{Binding NumberOfPets}"
+                    Width="*" 
+                    Header="Nombre"/>
+                <DataGridTextColumn
+                    Binding="{Binding IsFinish}"
+                    Width="*" 
+                    Header="Statut"/>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                ToolTip="MaterialDesignFloatingActionMiniDarkButton"
+                                HorizontalAlignment="Center"
+                                Height="30px"
+                                Width="30px"
+                                Margin="0,0,25px,0"
+                                Background="#8BC34A" 
+                                BorderBrush="#8BC34A"
+                                Cursor="Hand">
+                                <materialDesign:PackIcon Kind="Pencil"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
