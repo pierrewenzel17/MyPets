@@ -30,14 +30,14 @@ namespace MyPetsApiTest
             Assert.IsType<BadRequestObjectResult>(badRequestResult.Result);
         }
 
-
+        /*
         [Fact]
         public void CreatePerson_PersonObject_ReturnsCreate()
         {
             var createResult = _controller.Post(_person);
             Assert.IsType<CreatedAtActionResult>(createResult.Result);
         }
-        /*
+        
         [Fact]
         public void GetPerson_IdIsPersonId_ReturnsOk()
         {
@@ -56,7 +56,7 @@ namespace MyPetsApiTest
             // Assert
             Assert.IsType<BadRequestObjectResult>(badRequestResult.Result);
         }
-
+        /*
         [Fact]
         public void GetPerson_IdIsPersonIdMinusOne_ReturnsNotFound()
         {
@@ -64,7 +64,7 @@ namespace MyPetsApiTest
             var notFoundResult = _controller.Get(_person.PersonId -1);
             // Assert
             Assert.IsType<NotFoundObjectResult>(notFoundResult.Result);
-        }
+        }*/
 
         [Fact]
         public void Remove_IdIsNull_ReturnsBadRequest()
@@ -74,13 +74,13 @@ namespace MyPetsApiTest
             // Assert
             Assert.IsType<BadRequestObjectResult>(okResponse);
         }
-
+        /*
         [Fact]
         public void Remove_IdIsPersonId_ReturnsNoContent()
         {
             var okResponse = _controller.Delete(_person.PersonId);
             // Assert
             Assert.IsType<NoContentResult>(okResponse);
-        }
+        }*/
     }
 }
