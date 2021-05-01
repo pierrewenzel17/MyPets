@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MyPetsApp.Utils;
 using MyPetsApp.ViewModels;
 
 namespace MyPetsApp.Views
@@ -27,12 +28,20 @@ namespace MyPetsApp.Views
 
         private void LogInBtn_OnClick(object sender, RoutedEventArgs e)
         {
+            LogInViewModel logInViewModel = new();
+            logInViewModel.Connection(Username.Text, Password.Password);
+            //if (ActualUserSingleton.GetInstance() != null)
+            //{
+                Window fenster = new MainWindow();
+                fenster.DataContext = new UserViewModel();
+                fenster.Show();
 
-            Window fenster = new MainWindow();
-            fenster.DataContext = new UserViewModel();
-            fenster.Show();
-
-            this.Close();
+                this.Close();
+            /*}
+            else
+            {
+                error.Visibility = Visibility.Visible;
+            }*/
         }
     }
 }

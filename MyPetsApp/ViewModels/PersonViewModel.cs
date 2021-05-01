@@ -12,7 +12,7 @@ namespace MyPetsApp.ViewModels
     {
         public PersonViewModel()
         {
-            //Persons = Task.Run(() => new PersonService().Get()).GetAwaiter().GetResult();
+            Persons = Task.Run(() => new PersonService().Get()).GetAwaiter().GetResult();
         }
         public IEnumerable<Person> Persons { get; set; }
     }

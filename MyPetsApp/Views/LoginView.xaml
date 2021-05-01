@@ -26,6 +26,15 @@
             FontStyle="Italic"
             materialDesign:HintAssist.Hint="Mot de passe"
             Margin="190,200,190,50" />
+        <TextBlock
+            x:Name="error"
+            Text="Erreur lors de la connexion"
+            Foreground="Red"
+            Height="20" Width="200" FontSize="10"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Visibility="Hidden"
+            Margin="0 0 0 55"/>
         <Button 
             Click="LogInBtn_OnClick"
             Content="Se Connecter"

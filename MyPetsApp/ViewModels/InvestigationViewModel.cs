@@ -15,7 +15,7 @@ namespace MyPetsApp.ViewModels
     {
         public InvestigationViewModel()
         {
-            //Investigations = Task.Run(() => new InvestigationService().Get()).GetAwaiter().GetResult();
+            Investigations = Task.Run(() => new InvestigationService().Get()).GetAwaiter().GetResult();
         }
         public IEnumerable<Investigation> Investigations { get; set; }
     }

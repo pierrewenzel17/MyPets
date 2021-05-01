@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyPetsApp.Models;
+using MyPetsApp.Utils;
+using MyPetsCore.DTOs;
 
 namespace MyPetsApp.Views
 {
@@ -23,6 +26,7 @@ namespace MyPetsApp.Views
         public UserView()
         {
             InitializeComponent();
+            DataContext = ActualUserSingleton.GetInstance();
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System.Threading.Tasks;
-using MyPetsApp.Models;
-using MyPetsApp.Services;
+﻿using MyPetsApp.Models;
+using MyPetsApp.Utils;
 
 namespace MyPetsApp.ViewModels
 {
@@ -8,8 +7,9 @@ namespace MyPetsApp.ViewModels
     {
         public UserViewModel()
         {
-            // ActualUser = Task.Run(() => new PersonService().GetPerson(0)).GetAwaiter().GetResult();
+            ActualUser = ActualUserSingleton.GetInstance();
         }
-        public Person ActualUser { get; set; }
+
+        public Person ActualUser { get; init; }
     }
 }

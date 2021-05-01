@@ -17,10 +17,9 @@ namespace MyPetsApp.ViewModels
             
         }
 
-        public void Connection()
+        public void Connection(string email, string password)
         {
-            //TextBlock wantedChild = Username as TextBlock;
-            //Person person = Task.Run(() => new LoginService().Connection()).GetAwaiter().GetResult();
+            //Person person = Task.Run(() => new LoginService().Connection(email, password)).GetAwaiter().GetResult();
             //ActualUserSingleton.GetInstance(person);
         }
     }
