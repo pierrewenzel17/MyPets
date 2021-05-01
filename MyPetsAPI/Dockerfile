@@ -6,10 +6,10 @@ EXPOSE 80/tcp
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["MyPets/MyPetsAPI/MyPetsAPI.csproj", "MyPets/MyPetsAPI/"]
-RUN dotnet restore "MyPets/MyPetsAPI/MyPetsAPI.csproj"
+COPY ["MyPetsAPI/MyPetsAPI.csproj", "MyPetsAPI/"]
+RUN dotnet restore "MyPetsAPI/MyPetsAPI.csproj"
 COPY . .
-WORKDIR "/src/MyPets/MyPetsAPI"
+WORKDIR "/src/MyPetsAPI"
 RUN dotnet build "MyPetsAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

@@ -7,56 +7,88 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="950">
-  <Grid Background="DarkGray">
+    <Grid Background="White">
 
-    <Grid.RowDefinitions>
-      <RowDefinition Height="60"/>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="60"/>
-    </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0" Background="Orange">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                <Label Content="Jean" FontSize="24" />
+                <Label Content="DUMOULIN" FontSize="24" FontWeight="Bold"/>
+                <Label Content=" - " FontSize="24" FontWeight="Bold"/>
+                <Label Content="Administrateur" FontSize="24"/>
+            </StackPanel>
+            <Grid.Effect>
+                <DropShadowEffect  BlurRadius="10"
+                                 ShadowDepth="10"
+                                 Direction="-90"
+                                 Color="#bf7f1a"/>
+            </Grid.Effect>
+        </Grid>
 
-    <Grid Grid.Row="0" Background="Orange">
-      <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
-        <Label Content="Jean" FontSize="24" />
-        <Label Content="DUMOULIN" FontSize="24" FontWeight="Bold"/>
-      </StackPanel>
-      <Grid.Effect>
-        <DropShadowEffect  BlurRadius="10"
-                                   ShadowDepth="10"
-                                   Direction="-90"
-                                   Color="#bf7f1a"/>
-      </Grid.Effect>
+        <Grid Margin="20,55,0,5" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
+                <TextBlock Text="Vos Informations :" FontSize="30" Margin="0 20 0 0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="320">
+                <TextBox materialDesign:HintAssist.Hint="Adresse"
+                       Height="60" FontSize="20"
+                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox materialDesign:HintAssist.Hint="Code postal"
+                           Height="60" Width="110" FontSize="20"
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox materialDesign:HintAssist.Hint="Ville"
+                           Height="60" Width="190" FontSize="20"
+                           Margin="20 0 0 0"
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </StackPanel>
+                <TextBox materialDesign:HintAssist.Hint="Département"
+                       Height="60" FontSize="20"
+                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320">
+                <TextBox materialDesign:HintAssist.Hint="Email" 
+                       Height="60" FontSize="20"
+                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="N° de téléphone" 
+                       Height="60" FontSize="20"
+                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="0,100,0,200">
+                <TextBlock Text="Modification du mot de passe :" FontSize="30" Margin="0 0 0 30"/>
+                <PasswordBox x:Name="Acual_Password"
+                             Height="40" FontSize="20"
+                             Margin="0 0 0 50"
+                             materialDesign:HintAssist.Hint="Mot de passe actuel" />
+                <PasswordBox x:Name="Password"
+                             Height="40" FontSize="20"
+                             Margin="0 0 0 30"
+                             materialDesign:HintAssist.Hint="Nouveau mot de passe" />
+                <PasswordBox x:Name="Password_Confirmed"
+                             Height="40" FontSize="20"
+                             materialDesign:HintAssist.Hint="Confirmer le mot de passe" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button x:Name="Save_Btn" Content="Sauvegarder" Width="200" HorizontalAlignment="Right" Margin="0 0 20 0"/>
+        </Grid>
     </Grid>
-
-    <Grid Grid.Row="1">
-      <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBox materialDesign:HintAssist.Hint="Email" 
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <TextBox materialDesign:HintAssist.Hint="Adresse"
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <TextBox materialDesign:HintAssist.Hint="Code postal" 
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <TextBox materialDesign:HintAssist.Hint="Ville" 
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <TextBox materialDesign:HintAssist.Hint="N° de téléphone" 
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <TextBox materialDesign:HintAssist.Hint="Département" 
-                       Height="60" Width="200" FontSize="20"
-                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <PasswordBox x:Name="Password"
-                           Height="40" Width="200" FontSize="20"
-                           materialDesign:HintAssist.Hint="Mot de passe" />
-      </StackPanel>
-    </Grid>
-
-      <Grid Grid.Row="2">
-          <Button x:Name="Save_Btn" Content="Sauvegarder" Width="200" HorizontalAlignment="Right" Margin="0 0 20 0"/>
-      </Grid>
-  </Grid>
 </UserControl>

@@ -27,6 +27,7 @@ namespace MyPetsApp.Views
 
         private void LogInBtn_OnClick(object sender, RoutedEventArgs e)
         {
+
             Window fenster = new MainWindow();
             fenster.DataContext = new UserViewModel();
             fenster.Show();

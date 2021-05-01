@@ -1,11 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MyPetsApp.Models;
 using MyPetsApp.WebServices;
 using MyPetsCore.DTOs;
 
 namespace MyPetsApp.Services
 {
-    public class PersonService
+    class LoginService
     {
         public Person Map(PersonDto person)
         {
@@ -19,16 +23,16 @@ namespace MyPetsApp.Services
                 Address = person.Address,
                 ZipCode = person.ZipCode,
                 City = person.City,
-                Hierarchy = (Level) person.Hierarchy,
+                Hierarchy = (Level)person.Hierarchy,
                 Password = person.Password,
                 Zone = person.Zone
             };
         }
 
-        public async Task<Person> GetPerson(int id)
+        public async Task<Person> Connection(string email, string password)
         {
-            PersonWebService ws = new ();
-            return Map(await ws.GetPersonByIdAsync(id));
+            LoginWebService ws = new();
+            return Map(await ws.ConnectionAsync(email, password));
         }
     }
 }

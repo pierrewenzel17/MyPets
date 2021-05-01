@@ -22,7 +22,7 @@
             <view:InvestigationView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-    <Grid Background="WhiteSmoke">
+    <Grid Background="White">
         <!-- <controls:NavigationBar DataContext="{Binding Navigator}"/> -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

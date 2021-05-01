@@ -10,6 +10,7 @@ namespace MyPetsApp.WebServices
     {
         public LoginWebService() : base("Login")
         {
+
         }
 
         public async Task<PersonDto> ConnectionAsync(string email, string password)
