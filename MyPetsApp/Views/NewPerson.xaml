@@ -1,0 +1,80 @@
+﻿<Window x:Class="MyPetsApp.Views.NewPerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyPetsApp.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        d:DesignHeight="800" d:DesignWidth="950">
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Orange">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                <Label Content="{Binding FirstName}" FontSize="24" />
+                <Label Content="{Binding LastName}" FontSize="24" FontWeight="Bold"/>
+                <Label Content=" Nouvelle Personne " FontSize="24" FontWeight="Bold"/>
+                <Label Content="{Binding Hierarchy}" FontSize="24"/>
+            </StackPanel>
+            <Grid.Effect>
+                <DropShadowEffect  BlurRadius="10"
+                                   ShadowDepth="10"
+                                   Direction="-90"
+                                   Color="#bf7f1a"/>
+            </Grid.Effect>
+        </Grid>
+
+        <Grid Margin="20,55,0,5" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
+                <TextBox materialDesign:HintAssist.Hint="Nom"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="Prénom"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="Téléphone"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
+                <TextBox materialDesign:HintAssist.Hint="Adresse"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="Ville"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="e-Mail"
+                         Height="60" FontSize="20"
+                         Text="{Binding }"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button x:Name="Save_Btn" Content="Validé" Width="200" HorizontalAlignment="Right" Margin="0 0 20 10"/>
+        </Grid>
+    </Grid>
+</Window>
