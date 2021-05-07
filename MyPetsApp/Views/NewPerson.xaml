@@ -45,30 +45,30 @@
             <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
                 <TextBox materialDesign:HintAssist.Hint="Nom"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox materialDesign:HintAssist.Hint="Prénom"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox materialDesign:HintAssist.Hint="Téléphone"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
                 <TextBox materialDesign:HintAssist.Hint="Adresse"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox materialDesign:HintAssist.Hint="Ville"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox materialDesign:HintAssist.Hint="e-Mail"
                          Height="60" FontSize="20"
-                         Text="{Binding }"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
         </Grid>

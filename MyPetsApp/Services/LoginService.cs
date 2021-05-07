@@ -13,7 +13,7 @@ namespace MyPetsApp.Services
     {
         public Person Map(PersonDto person)
         {
-            return new()
+            Person p = new()
             {
                 PersonId = person.PersonId,
                 FirstName = person.FirstName,
@@ -23,10 +23,13 @@ namespace MyPetsApp.Services
                 Address = person.Address,
                 ZipCode = person.ZipCode,
                 City = person.City,
-                Hierarchy = (Level)person.Hierarchy,
                 Password = person.Password,
                 Zone = person.Zone
             };
+
+            p.Set(person.Hierarchy);
+
+            return p;
         }
 
         public async Task<Person> Connection(string email, string password)

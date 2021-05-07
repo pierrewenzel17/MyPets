@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MyPetsApp.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="950">
+             d:DesignHeight="800" d:DesignWidth="1100">
     <Grid Background="White">
 
         <Grid.RowDefinitions>
@@ -46,55 +46,85 @@
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="320">
                 <TextBox materialDesign:HintAssist.Hint="Adresse"
-                       Height="60" FontSize="20"
+                         x:Name="Adresse_tb"
+                         Height="60" FontSize="20"
                        Text="{Binding Address}"
                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBox materialDesign:HintAssist.Hint="Code postal"
-                           Height="60" Width="110" FontSize="20"
+                             x:Name="CodePostal_tb"
+                             Height="60" Width="110" FontSize="20"
                            Text="{Binding ZipCode}"
                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBox materialDesign:HintAssist.Hint="Ville"
-                           Height="60" Width="190" FontSize="20"
+                             x:Name="Ville_tb"
+                             Height="60" Width="190" FontSize="20"
                            Margin="20 0 0 0"
                            Text="{Binding City}"
-                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 </StackPanel>
                 <TextBox materialDesign:HintAssist.Hint="Département"
-                       Height="60" FontSize="20"
+                         x:Name="Departement_tb"
+                         Height="60" FontSize="20"
                        Text="{Binding Zone}"
                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320">
                 <TextBox materialDesign:HintAssist.Hint="Email" 
-                       Height="60" FontSize="20"
+                         x:Name="Mail_tb"
+                         Height="60" FontSize="20"
                        Text="{Binding Email}"
                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox materialDesign:HintAssist.Hint="N° de téléphone" 
-                       Height="60" FontSize="20"
+                         x:Name="Telephone_tb"
+                         Height="60" FontSize="20"
                        Text="{Binding PhoneNumber}"
                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="0,100,0,200">
                 <TextBlock Text="Modification du mot de passe :" FontSize="30" Margin="0 0 0 30"/>
-                <PasswordBox x:Name="Acual_Password"
+                <PasswordBox x:Name="Actual_Password"
                              Height="40" FontSize="20"
                              Margin="0 0 0 50"
-                             materialDesign:HintAssist.Hint="Mot de passe actuel" />
+                             materialDesign:HintAssist.Hint="Mot de passe actuel" Cursor="IBeam" />
                 <PasswordBox x:Name="Password"
                              Height="40" FontSize="20"
                              Margin="0 0 0 30"
-                             materialDesign:HintAssist.Hint="Nouveau mot de passe" />
+                             materialDesign:HintAssist.Hint="Nouveau mot de passe" Cursor="IBeam" />
                 <PasswordBox x:Name="Password_Confirmed"
                              Height="40" FontSize="20"
                              materialDesign:HintAssist.Hint="Confirmer le mot de passe" />
             </StackPanel>
+            <TextBlock Grid.Column="1" Grid.Row="2"
+                       x:Name="notSameMdp"
+                       Text="Les champs du nouveau mot de passe sont différents"
+                       Foreground="Red"
+                       Height="40" Width="400" FontSize="15"
+                       Visibility="Hidden"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left" Margin="0,0,0,160"/>
+            <TextBlock Grid.Column="1" Grid.Row="1"
+                       x:Name="mdpIsInvalid"
+                       Text="Le mot de passe n'est pas correct"
+                       Foreground="Red"
+                       Height="40" Width="400" FontSize="15"
+                       Visibility="Hidden"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left" Margin="0,0,0,30"/>
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button x:Name="Save_Btn" Content="Sauvegarder" Width="200" HorizontalAlignment="Right" Margin="0 0 20 0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock x:Name="NeedMdp"
+                       Text="Le mot de passe est nécessaire pour sauvegarder les nouvelles informations"
+                       Foreground="Red"
+                       Height="20" Width="550" FontSize="15"
+                       Visibility="Hidden"
+                       />
+                <Button Click="saveBtn_OnClick" Content="Sauvegarder" Width="200" HorizontalAlignment="Right" Margin="0 0 20 0" Cursor="Hand"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>
