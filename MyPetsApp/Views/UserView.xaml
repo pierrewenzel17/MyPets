@@ -55,7 +55,7 @@
                              x:Name="CodePostal_tb"
                              Height="60" Width="110" FontSize="20"
                            Text="{Binding ZipCode}"
-                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                     <TextBox materialDesign:HintAssist.Hint="Ville"
                              x:Name="Ville_tb"
                              Height="60" Width="190" FontSize="20"

@@ -81,5 +81,11 @@ namespace MyPetsApp.Services
             PersonWebService ws = new();
             return Map(await ws.UpdatePersonAsync(id, Map(person)));
         }
+
+        public async Task<Person> CreatePerson(Person person)
+        {
+            PersonWebService ws = new();
+            return Map(await ws.CreatePersonAsync(Map(person)));
+        }
     }
 }
