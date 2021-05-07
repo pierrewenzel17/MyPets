@@ -14,13 +14,21 @@ namespace MyPetsApp.ViewModels
     {
         public LogInViewModel()
         {
-            
+
         }
 
-        public void Connection(string email, string password)
+        public Boolean Connection(string email, string password)
         {
-            //Person person = Task.Run(() => new LoginService().Connection(email, password)).GetAwaiter().GetResult();
-            //ActualUserSingleton.GetInstance(person);
+            try
+            {
+                Person person = Task.Run(() => new LoginService().Connection(email, password)).GetAwaiter().GetResult();
+                ActualUserSingleton.GetInstance(person);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

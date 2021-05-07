@@ -29,19 +29,19 @@ namespace MyPetsApp.Views
         private void LogInBtn_OnClick(object sender, RoutedEventArgs e)
         {
             LogInViewModel logInViewModel = new();
-            logInViewModel.Connection(Username.Text, Password.Password);
-            //if (ActualUserSingleton.GetInstance() != null)
-            //{
+            var connectionSuccess = logInViewModel.Connection(Username.Text, Password.Password);
+            if (connectionSuccess)
+            {
                 Window fenster = new MainWindow();
                 fenster.DataContext = new UserViewModel();
                 fenster.Show();
 
                 this.Close();
-            /*}
+            }
             else
             {
                 error.Visibility = Visibility.Visible;
-            }*/
+            }
         }
     }
 }
