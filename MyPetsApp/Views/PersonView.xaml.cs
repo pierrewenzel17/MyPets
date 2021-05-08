@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyPetsApp.ViewModels;
 
 namespace MyPetsApp.Views
 {
@@ -23,6 +24,11 @@ namespace MyPetsApp.Views
         public PersonView()
         {
             InitializeComponent();
+        }
+
+        public void CreateNewPerson(object sender, RoutedEventArgs e)
+        {
+            //System.Windows.Application.Current.MainWindow.DataContext = new NewPersonViewModel();
         }
     }
 }

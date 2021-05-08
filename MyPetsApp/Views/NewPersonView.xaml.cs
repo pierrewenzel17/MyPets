@@ -66,10 +66,9 @@ namespace MyPetsApp.Views
                         Zone = New_Departement_tb.Text
                     };
 
-                    NewPersonModel npm = new();
+                    NewPersonViewModel npm = new();
                     npm.CreateUser(person);
                 }
-
             }
         }
     }

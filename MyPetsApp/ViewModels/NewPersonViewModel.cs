@@ -8,9 +8,9 @@ using MyPetsApp.Services;
 
 namespace MyPetsApp.ViewModels
 {
-    class NewPersonModel : ViewModelBase
+    class NewPersonViewModel : ViewModelBase
     {
-        public NewPersonModel()
+        public NewPersonViewModel()
         {
 
         }

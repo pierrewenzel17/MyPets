@@ -45,7 +45,7 @@
                     <TextBox materialDesign:HintAssist.Hint="Nom"
                              x:Name="New_Nom_tb"
                              Height="60" Width="150" FontSize="20"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                     <TextBox materialDesign:HintAssist.Hint="Prénom"
                              x:Name="New_Prenom_tb"
                              Height="60" Width="150" FontSize="20"

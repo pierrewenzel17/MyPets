@@ -31,6 +31,7 @@
                    HorizontalAlignment="Left"
                    Margin="10px"/>
         <Button
+            Click="CreateNewPerson"
             Grid.Row="0"
             Grid.Column="1"
             Width="40px"
