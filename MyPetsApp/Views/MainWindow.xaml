@@ -18,8 +18,14 @@
         <DataTemplate x:Name="personViewTemplate" DataType="{x:Type viewModels:PersonViewModel}">
             <view:PersonView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="newPersonViewTemplate" DataType="{x:Type viewModels:NewPersonViewModel}">
+            <view:NewPersonView DataContext="{Binding}"/>
+        </DataTemplate>
         <DataTemplate x:Name="investigationViewTemplate" DataType="{x:Type viewModels:InvestigationViewModel}">
             <view:InvestigationView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="newInvestigationViewTemplate" DataType="{x:Type viewModels:NewInvestigationViewModel}">
+            <view:NewInvestigationView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
     <Grid Background="White">
@@ -127,25 +133,43 @@
 
                             <ListViewItem Height="60">
                                 <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Account" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                    <materialDesign:PackIcon Kind="AccountOutline" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
                                     <TextBlock Text="Compte" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
                                 </StackPanel>
                             </ListViewItem>
 
                             <!--// Gestion des équipes //-->
 
-                            <ListViewItem Height="60">
+                                <!--// liste des équipes //-->
+                            <ListViewItem x:Name="equipe" Height="60">
                                 <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="AccountGroup" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                    <materialDesign:PackIcon Kind="AccountGroupOutline" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
                                     <TextBlock Text="Gestion des équipes" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                                <!--// Ajout d'une personne //-->
+                            <ListViewItem x:Name="personne" Height="60">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="AccountMultiplePlusOutline" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                    <TextBlock Text="Ajout d'une personne" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
                                 </StackPanel>
                             </ListViewItem>
 
                             <!--// Gestion des enquêtes //-->
 
+                                <!--// liste des enquêtes //-->
                             <ListViewItem Height="60">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="BriefcaseSearchOutline" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                    <TextBlock Text="Gestion des enquêtes" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                                <!--// Ajout d'une enquête //-->
+                            <ListViewItem Height="60">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="BriefcasePlusOutline" Height="30" Width="30" VerticalAlignment="Center" Margin="10 0 0 0"/>
                                     <TextBlock Text="Gestion des enquêtes" Foreground="White" VerticalAlignment="Center" FontSize="15" Margin="25,0,0,0"/>
                                 </StackPanel>
                             </ListViewItem>

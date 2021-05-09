@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using MyPetsApp.Utils;
 using MyPetsApp.ViewModels;
 
 namespace MyPetsApp.Views
@@ -13,19 +14,41 @@ namespace MyPetsApp.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            if (ActualUserSingleton.GetInstance().Hierarchy != "Administrateur")
+            {
+                ListViewMenu.Items.RemoveAt(1);
+                ListViewMenu.Items.RemoveAt(1);
+            }
         }
 
         private void ListViewMenu_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = ListViewMenu.SelectedIndex;
             MoveCursorMenu(index);
-            DataContext = index switch
+
+            if (ActualUserSingleton.GetInstance().Hierarchy != "Administrateur")
             {
-                0 => new UserViewModel(),
-                1 => new PersonViewModel(),
-                2 => new InvestigationViewModel(),
-                _ => DataContext
-            };
+                DataContext = index switch
+                {
+                    0 => new UserViewModel(),
+                    1 => new InvestigationViewModel(),
+                    2 => new NewInvestigationViewModel(),
+                    _ => DataContext
+                };
+            }
+            else
+            {
+                DataContext = index switch
+                {
+                    0 => new UserViewModel(),
+                    1 => new PersonViewModel(),
+                    2 => new NewPersonViewModel(),
+                    3 => new InvestigationViewModel(),
+                    4 => new NewInvestigationViewModel(),
+                    _ => DataContext
+                };
+            }
         }
 
         private void MoveCursorMenu(int index)

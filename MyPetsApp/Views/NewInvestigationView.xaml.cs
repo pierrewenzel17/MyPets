@@ -12,24 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MyPetsApp.Models;
-using MyPetsApp.Utils;
-using MyPetsApp.ViewModels;
 
 namespace MyPetsApp.Views
 {
     /// <summary>
-    /// Logique d'interaction pour PersonView.xaml
+    /// Logique d'interaction pour NewInvestigationView.xaml
     /// </summary>
-    public partial class PersonView : UserControl
+    public partial class NewInvestigationView : UserControl
     {
-        public PersonView()
+        public NewInvestigationView()
         {
             InitializeComponent();
-
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void createInvbtn_OnClick(object sender, RoutedEventArgs e)
         {
 
         }

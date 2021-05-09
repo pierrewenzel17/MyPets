@@ -18,11 +18,11 @@ using MyPetsApp.ViewModels;
 namespace MyPetsApp.Views
 {
     /// <summary>
-    /// Logique d'interaction pour NewPerson.xaml
+    /// Logique d'interaction pour NewPersonView.xaml
     /// </summary>
-    public partial class NewPerson : UserControl
+    public partial class NewPersonView : UserControl
     {
-        public NewPerson()
+        public NewPersonView()
         {
             InitializeComponent();
         }
@@ -36,7 +36,8 @@ namespace MyPetsApp.Views
                 New_Departement_tb.Text == "" ||
                 New_Mail_tb.Text == "" ||
                 New_Telephone_tb.Text == "" ||
-                New_Ville_tb.Text == "")
+                New_Ville_tb.Text == "" ||
+                New_Hierarchie_cb.Text == "")
             {
                 New_NeedInfo.Visibility = Visibility.Visible;
             }
@@ -68,6 +69,19 @@ namespace MyPetsApp.Views
 
                     NewPersonViewModel npm = new();
                     npm.CreateUser(person);
+
+                    //Reset des champs
+                    New_Nom_tb.Text = "";
+                    New_Prenom_tb.Text = "";
+                    New_Adresse_tb.Text = "";
+                    New_CodePostal_tb.Text = "";
+                    New_Departement_tb.Text = "";
+                    New_Mail_tb.Text = "";
+                    New_Telephone_tb.Text = "";
+                    New_Ville_tb.Text = "";
+                    New_Password.Password = "";
+                    New_Password_Confirmed.Password = "";
+                    New_Hierarchie_cb.Text = "";
                 }
             }
         }

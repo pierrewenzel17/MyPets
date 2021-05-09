@@ -9,43 +9,27 @@
              xmlns:view="clr-namespace:MyPetsApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!--<Window.Ressources>
-        <DataTemplate x:Name="newPersonTemplate" DataType="{x:Type viewModels:NewPersonModel}">
-            <view:NewPerson DataContext="{Binding}"/>
-        </DataTemplate>
-    </Window.Ressources>-->
+
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100px" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="100px"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" 
-                   Grid.Row="0"
-                   Style="{StaticResource MaterialDesignHeadline3TextBlock}"
-                   Text="Listes des employés"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Left"
-                   Margin="10px"/>
-        <Button
-            Click="CreateNewPerson"
-            Grid.Row="0"
-            Grid.Column="1"
-            Width="40px"
-            Height="40px"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Background="Orange" 
-            BorderBrush="Orange"
-            Margin="0,10,0,0"
-            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-            ToolTip="MaterialDesignFloatingActionAccentButton" Cursor="Hand">
-            <materialDesign:PackIcon Kind="Plus" Width="25" Height="25" />
-        </Button>
-        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Persons}" 
+
+        <Grid Grid.Row="0" Background="Orange">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                <Label Content="Liste des Personnes" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+            <Grid.Effect>
+                <DropShadowEffect  BlurRadius="10"
+                                   ShadowDepth="10"
+                                   Direction="-90"
+                                   Color="#bf7f1a"/>
+            </Grid.Effect>
+        </Grid>
+
+        <DataGrid Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Persons}" 
                   CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"  
@@ -53,7 +37,7 @@
                   Background="White"
                   AlternatingRowBackground="#DCEDC8"
                   BorderBrush="Transparent"
-                  Margin="10px, 0px">
+                  Margin="10,20,10,0" Grid.RowSpan="2" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />
@@ -79,6 +63,7 @@
                     </Style.Triggers>
                 </Style>
             </DataGrid.Resources>
+
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Binding="{Binding PersonId}"
@@ -120,26 +105,12 @@
                     Binding="{Binding Zone}"
                     Header="Zone"
                     Width="*"/>
-                <DataGridTemplateColumn Header="">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button
-                                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
-                                ToolTip="MaterialDesignFloatingActionMiniDarkButton"
-                                HorizontalAlignment="Center"
-                                Height="30px"
-                                Width="30px"
-                                Margin="0,0,25px,0"
-                                Background="Orange" 
-                                BorderBrush="Orange"
-                                Cursor="Hand">
-                                <materialDesign:PackIcon Kind="Pencil"/>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
             </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate x:Name="modifyPersonViewTemplate" DataType="{x:Type viewModels:ModifyPersonViewModel}">
+                    <view:ModifyPersonView DataContext="{Binding}"/>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </UserControl>

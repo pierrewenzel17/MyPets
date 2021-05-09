@@ -9,35 +9,24 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100px" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="100px"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" 
-                   Grid.Row="0"
-                   Style="{StaticResource MaterialDesignHeadline3TextBlock}"
-                   Text="Listes des enquêtes"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Left"
-                   Margin="10px"/>
-        <Button
-            Grid.Row="0"
-            Grid.Column="1"
-            Width="40px"
-            Height="40px"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Background="Orange" 
-            BorderBrush="Orange"
-            Margin="0,10,0,0"
-            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-            ToolTip="MaterialDesignFloatingActionAccentButton" Cursor="Hand">
-            <materialDesign:PackIcon Kind="Plus" Width="25" Height="25" />
-        </Button>
-        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Investigations}" 
+
+        <Grid Grid.Row="0" Background="Orange">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                <Label Content="Liste des enquêtes" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+            <Grid.Effect>
+                <DropShadowEffect  BlurRadius="10"
+                                   ShadowDepth="10"
+                                   Direction="-90"
+                                   Color="#bf7f1a"/>
+            </Grid.Effect>
+        </Grid>
+
+        <DataGrid Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Investigations}" 
                   CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"  
@@ -45,7 +34,7 @@
                   Background="White"
                   AlternatingRowBackground="#DCEDC8"
                   BorderBrush="Transparent"
-                  Margin="10px, 0px">
+                  Margin="10,20,10,0">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />
