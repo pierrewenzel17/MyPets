@@ -59,6 +59,8 @@ namespace MyPetsApp.Views
 
         private void DisconnectBtn_OnClick(object sender, RoutedEventArgs e)
         {
+            ActualUserSingleton.Reset();
+            
             Window window = new LoginView();
             window.Show();
 
