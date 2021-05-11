@@ -22,10 +22,23 @@ namespace MyPetsApp.Services
                 Type = person.Type
             };
         }
+
+        public InvestigationPersonDto Map(InvestigationPerson person)
+        {
+            return new(person.InvestigationPersonId, person.FirstName, person.LastName, person.Email, person.Address,
+                person.ZipCode, person.City, person.PhoneNumber, person.Type);
+        }
+
         public async Task<InvestigationPerson> GetInvestigationPerson(int id)
         {
             PersonWebService ws = new();
             return Map(await ws.GetInvestigationPersonByIdAsync(id));
+        }
+
+        public async Task<InvestigationPersonDto> Create(InvestigationPerson investigationPerson)
+        {
+            PersonWebService ws = new();
+            return await ws.CreateInvestigationPersonAsync(Map(investigationPerson));
         }
 
     }
