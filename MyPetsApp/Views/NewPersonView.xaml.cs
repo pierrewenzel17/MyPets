@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MyPetsApp.Models;
 using MyPetsApp.Utils;
 using MyPetsApp.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace MyPetsApp.Views
 {
@@ -29,6 +30,56 @@ namespace MyPetsApp.Views
 
         public void createbtn_OnClick(object sender, RoutedEventArgs e)
         {
+            string messagebox = "Format Invalide. Veulliez saisir des caractères valides pour :";
+
+            //Nom_
+            if (!Regex.IsMatch(New_Nom_tb.Text, @"^[a-zA-Z0-9éèà'-ç ]*$") || New_Nom_tb.Text == "")
+            {
+                messagebox += "\n- Nom";
+            }
+
+            //Prenom
+            if (!Regex.IsMatch(New_Prenom_tb.Text, @"^[a-zA-Zéèà'-ç ]*$") || New_Prenom_tb.Text == "")
+            {
+                messagebox += "\n- Prenom";
+            }
+
+            //Adresse
+            if (!Regex.IsMatch(New_Adresse_tb.Text, @"^[a-zA-Z0-9éèà'-ç ]*$") || New_Adresse_tb.Text == "")
+            {
+                messagebox += "\n- Adresse Postale";
+            }
+
+            //Code Postal
+            if (!Regex.IsMatch(New_CodePostal_tb.Text, "[0-9]{5}") || New_CodePostal_tb.Text == "")
+            {
+                messagebox += "\n- Code Postal";
+            }
+
+            //Ville
+            if (!Regex.IsMatch(New_Ville_tb.Text, @"^[a-zA-Zéèà'-ç/ ]*$") || New_Ville_tb.Text == "")
+            {
+                messagebox += "\n- Nom de la Ville";
+            }
+
+            //Departement
+            if (!Regex.IsMatch(New_Departement_tb.Text, @"^[a-zA-Zéèà'-ç/ ]*$") || New_Departement_tb.Text == "")
+            {
+                messagebox += "\n- Nom du Departement";
+            }
+
+            //Mail
+            if (!Regex.IsMatch(New_Mail_tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$") || New_Mail_tb.Text == "")
+            {
+                messagebox += "\n- Adresse e-mail";
+            }
+
+            //Telephone
+            if (!Regex.IsMatch(New_Telephone_tb.Text, @"(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}") || New_Telephone_tb.Text == "")
+            {
+                messagebox += "\n- Numéro de Telephone";
+            }
+
             if (New_Nom_tb.Text == "" ||
                 New_Prenom_tb.Text == "" ||
                 New_Adresse_tb.Text == "" ||
@@ -48,6 +99,7 @@ namespace MyPetsApp.Views
                 if (New_Password.Password != New_Password_Confirmed.Password)
                 {
                     New_notSameMdp.Visibility = Visibility.Visible;
+                    messagebox += "\n- Mots de passe différents";
                 }
                 else
                 {
@@ -84,6 +136,9 @@ namespace MyPetsApp.Views
                     New_Hierarchie_cb.Text = "";
                 }
             }
+
+            if (messagebox != "Format Invalide. Veulliez saisir des caractères valides pour :")
+                MessageBox.Show(messagebox, "Erreur de Saisie", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

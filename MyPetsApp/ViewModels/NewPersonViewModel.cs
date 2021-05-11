@@ -15,6 +15,8 @@ namespace MyPetsApp.ViewModels
 
         }
 
+        
+
         public void CreateUser(Person person)
         {
             Task.Run(() => new PersonService().CreatePerson(person).GetAwaiter().GetResult());

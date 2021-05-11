@@ -70,16 +70,20 @@
                                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
                     <TextBlock Text="Type de personne :" FontSize="20" Margin="0 20 0 15"/>
-                    <ComboBox
-                                        Style="{StaticResource MaterialDesignFilledComboBox}"
-                                        materialDesign:HintAssist.Hint="Hiérarchie"
-                                        materialDesign:TextFieldAssist.HasClearButton="True"
-                                        x:Name="tab_Hierarchie_cb"
-                                        SelectedIndex="{Binding Hierarchy}"
-                                        IsSynchronizedWithCurrentItem="True">
-                        <ComboBoxItem Content="Bénévole" />
-                        <ComboBoxItem Content="Salarié" />
-                    </ComboBox>
+                    <TextBox materialDesign:HintAssist.Hint="Hiérarchie" 
+                             x:Name="tab_Hierarchie_cb"
+                             Height="60" FontSize="20"
+                             Text="{Binding Hierarchy}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    
+                    <!--ComboBox
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        materialDesign:HintAssist.Hint="Hiérarchie"
+                        x:Name="tab_Hierarchie_cb"
+                        ItemsSource="{Binding Hierarchie}"
+                        IsSynchronizedWithCurrentItem="True">
+                    </> -->
+
                 </StackPanel>
             </StackPanel>
 

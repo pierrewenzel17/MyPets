@@ -12,6 +12,8 @@ namespace MyPetsApp.ViewModels
     {
         public ModifyPersonViewModel() {}
 
+        public enum Hierarchie { Salarié, Bénévole }
+
         public void ModifyUser(Person person)
         {
             try

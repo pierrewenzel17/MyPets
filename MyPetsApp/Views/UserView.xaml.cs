@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,18 +33,57 @@ namespace MyPetsApp.Views
 
         public void saveBtn_OnClick(object sender, RoutedEventArgs e)
         {
+            string messagebox = "Format Invalide. Veulliez saisir des caractères valides pour :";
+
+            //Adresse
+            if (!Regex.IsMatch(Adresse_tb.Text, @"^[a-zA-Z0-9éèà'-ç ]*$") || Adresse_tb.Text == "")
+            {
+                messagebox += "\n- Adresse Postale";
+            }
+
+            //Code Postal
+            if (!Regex.IsMatch(CodePostal_tb.Text, "[0-9]{5}") || CodePostal_tb.Text == "")
+            {
+                messagebox += "\n- Code Postal";
+            }
+
+            //Ville
+            if (!Regex.IsMatch(Ville_tb.Text, @"^[a-zA-Zéèà'-ç/ ]*$") || Ville_tb.Text == "")
+            {
+                messagebox += "\n- Nom de la Ville";
+            }
+
+            //Departement
+            if (!Regex.IsMatch(Departement_tb.Text, @"^[a-zA-Zéèà'-ç/ ]*$") || Departement_tb.Text == "")
+            {
+                messagebox += "\n- Nom du Departement";
+            }
+
+            //Mail
+            if (!Regex.IsMatch(Mail_tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$") || Mail_tb.Text == "")
+            {
+                messagebox += "\n- Adresse e-mail";
+            }
+
+            //Telephone
+            if (!Regex.IsMatch(Telephone_tb.Text, @"(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}") || Telephone_tb.Text == "")
+            {
+                messagebox += "\n- Numéro de Telephone";
+            }
+
             if (Actual_Password.Password == ActualUserSingleton.GetInstance().Password)
             {
                 String newPassword = Actual_Password.Password;
 
-                if (Password.Password != Password_Confirmed.Password)
+                if ((Password.Password != Password_Confirmed.Password) & (Password.Password != ""))
                 {
                     notSameMdp.Visibility = Visibility.Visible;
-                    newPassword = Password_Confirmed.Password;
+                    messagebox += "\n- Mots de passe différents";
                 }
                 else
                 {
                     notSameMdp.Visibility = Visibility.Hidden;
+                    newPassword = Password_Confirmed.Password;
                 }
 
                 NeedMdp.Visibility = Visibility.Hidden;
@@ -67,6 +107,8 @@ namespace MyPetsApp.Views
                 UserViewModel uvm = new();
                 uvm.ModifyUser(person);
 
+                MessageBox.Show(messagebox, "Modification effectuée !", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 Password.Password = "";
                 Password_Confirmed.Password = "";
                 Actual_Password.Password = "";
@@ -74,12 +116,17 @@ namespace MyPetsApp.Views
             else if (Actual_Password.Password.Length == 0)
             {
                 NeedMdp.Visibility = Visibility.Visible;
+                messagebox += "\n- Mot de passe actuel nécéssaire";
             }
             else
             {
                 mdpIsInvalid.Visibility = Visibility.Visible;
                 NeedMdp.Visibility = Visibility.Hidden;
+                messagebox += "\n- Mot de passe incorrect";
             }
+
+            if(messagebox != "Format Invalide. Veulliez saisir des caractères valides pour :")
+                MessageBox.Show(messagebox, "Erreur de Saisie", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
