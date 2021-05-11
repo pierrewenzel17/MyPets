@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  db:
+   image: mysql:latest
+   container_name: MyPets-Database
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: MyPets
+     MYSQL_USER: api
+     MYSQL_PASSWORD: mdp
+   ports:
+      - "3306:3306"
+   networks:
+      - mypetsnetwork
+   volumes:
+     - ./mysql_data:/var/lib/mysql/
+     - ./db:/docker-entrypoint-initdb.d
+
+  mypetsapi:
+    container_name: MyPets-API
+    build:
+      context: .
+      dockerfile: MyPetsAPI/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DBHOST=db
+    ports:
+      - "5000:80"
+    networks:
+      - mypetsnetwork
+    depends_on:
+        - db
+    
+volumes: 
+  mysql_data:
+
+networks:
+  mypetsnetwork:
+    driver: bridge
+    name: MyPetsNetwork

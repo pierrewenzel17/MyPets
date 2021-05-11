@@ -12,10 +12,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0" Background="Orange">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="Orange">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
                 <Label Content="Nouvel Enquête" FontSize="24" FontWeight="Bold"/>
             </StackPanel>
@@ -27,29 +32,166 @@
             </Grid.Effect>
         </Grid>
 
-        <Grid Margin="20,55,0,5" Grid.RowSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" Margin="20 0  0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
 
-        </Grid>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne plaignante :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
+                         x:Name="New_Nom_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
+                         x:Name="New_Prenom_p"
+                         Margin="10,0,0,0"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
+                                        x:Name="New_Adresse_p"
+                                        Height="60" Width="160" FontSize="12"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
+                         x:Name="New_CodePostal_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
+                         x:Name="New_Ville_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Département"
+                         x:Name="New_Departement_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
+                         x:Name="New_Mail_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
+                         x:Name="New_Telephone_p"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </Grid>
+        </StackPanel>
 
-        <Grid Grid.Row="2">
+        <StackPanel Grid.Column="0" Grid.Row="2"  HorizontalAlignment="Left" Margin="20 0  0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne suspecté :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
+                         x:Name="New_Nom_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
+                         x:Name="New_Prenom_s"
+                         Margin="10,0,0,0"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
+                                        x:Name="New_Adresse_s"
+                                        Height="60" Width="160" FontSize="12"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
+                         x:Name="New_CodePostal_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
+                         x:Name="New_Ville_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Département"
+                         x:Name="New_Departement_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
+                         x:Name="New_Mail_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
+                         x:Name="New_Telephone_s"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Information de l'enquête :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Raison"
+                         x:Name="raison"
+                         Height="60" Width="320" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Race"
+                         x:Name="breed"
+                         Margin="10,0,0,0"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Nombre d'animaux"
+                         x:Name="nb_pet"
+                         Height="60" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                <ComboBox Grid.Column="0" Grid.Row="3"
+                          x:Name="investigator"
+                          Height="60" Width="160" FontSize="12"
+                          ItemsSource="{Binding Path=Persons}"
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                          materialDesign:HintAssist.Hint="Délégué enquêteur"
+                          Margin="0,20,0,0"
+                          SelectedValuePath="PersonId">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Run Text="{Binding FirstName}" />
+                                <Run Text="{Binding LastName}" />
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock x:Name="New_NeedInfo"
-                           Text="Veilliez à remplir tous les champs !"
+                           Text="Veuillez remplir tous les champs !"
                            Foreground="Red"
                            Height="20" Width="250" FontSize="15"
                            Visibility="Hidden"
                 />
                 <Button Click="createInvbtn_OnClick" Content="Créer" Width="200" HorizontalAlignment="Right" Margin="0 0 20 0" Cursor="Hand"/>
             </StackPanel>
-        </Grid>
+        </Grid> 
     </Grid>
 </UserControl>

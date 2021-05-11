@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPetsAPI", "MyPetsAPI\MyPe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPetsCore", "MyPetsCore\MyPetsCore.csproj", "{BA7FB46D-040B-44E4-950B-0F97A95F2224}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "..\docker-compose.dcproj", "{15DB633D-D834-4137-A0BA-CB2C4AE0D1C9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPetsWeb", "MyPetsWeb\MyPetsWeb.csproj", "{5E77E081-754D-4A01-A4C0-6201A1637F4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPetsApiTest", "MyPetsApiTest\MyPetsApiTest.csproj", "{578C00C1-CA5F-4DF8-B4E8-A23A43C32306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPetsApiTest", "MyPetsApiTest\MyPetsApiTest.csproj", "{578C00C1-CA5F-4DF8-B4E8-A23A43C32306}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D3E0781A-35B2-4072-9335-045238AFB103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,6 @@ Global
 		{BA7FB46D-040B-44E4-950B-0F97A95F2224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7FB46D-040B-44E4-950B-0F97A95F2224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7FB46D-040B-44E4-950B-0F97A95F2224}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15DB633D-D834-4137-A0BA-CB2C4AE0D1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15DB633D-D834-4137-A0BA-CB2C4AE0D1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15DB633D-D834-4137-A0BA-CB2C4AE0D1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15DB633D-D834-4137-A0BA-CB2C4AE0D1C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E77E081-754D-4A01-A4C0-6201A1637F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E77E081-754D-4A01-A4C0-6201A1637F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E77E081-754D-4A01-A4C0-6201A1637F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{578C00C1-CA5F-4DF8-B4E8-A23A43C32306}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{578C00C1-CA5F-4DF8-B4E8-A23A43C32306}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{578C00C1-CA5F-4DF8-B4E8-A23A43C32306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E0781A-35B2-4072-9335-045238AFB103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E0781A-35B2-4072-9335-045238AFB103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E0781A-35B2-4072-9335-045238AFB103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E0781A-35B2-4072-9335-045238AFB103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

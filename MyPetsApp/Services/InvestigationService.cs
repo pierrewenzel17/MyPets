@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Accessibility;
+using Microsoft.VisualBasic;
 using MyPetsApp.Models;
 using MyPetsApp.WebServices;
 using MyPetsCore.DTOs;
@@ -28,6 +30,31 @@ namespace MyPetsApp.Services
             investigation.InvestigationPlaintiffId = await ips.GetInvestigationPerson(investigationDto.InvestigationPlaintiffId);
 
             return investigation;
+        }
+
+        public InvestigationDto Map(Investigation investigation)
+        {
+            if(investigation.HolderInvestigatorId.PersonId is not null && 
+               investigation.InvestigationOffenderId.InvestigationPersonId != null &&
+               investigation.InvestigationPlaintiffId.InvestigationPersonId != null)
+                return new(investigation.InvestigationId, 
+                    (int)investigation.HolderInvestigatorId.PersonId,
+                    (int)investigation.InvestigationOffenderId.InvestigationPersonId,
+                    (int)investigation.InvestigationPlaintiffId.InvestigationPersonId,
+                    investigation.Reason, investigation.Breed, investigation.NumberOfPets, false);
+            return null;
+        }
+
+        public async Task Create(Investigation investigation)
+        {
+            InvestigationPersonService ipService = new();
+            InvestigationWebService ws = new();
+            var p = await ipService.Create(investigation.InvestigationOffenderId);
+            var p2 = await ipService.Create(investigation.InvestigationPlaintiffId);
+            investigation.InvestigationOffenderId.InvestigationPersonId = p.InvestigationPersonId;
+            investigation.InvestigationPlaintiffId.InvestigationPersonId = p2.InvestigationPersonId;
+            await ws.CreateInvestigationAsync(Map(investigation));
+
         }
 
         public async Task<IEnumerable<Investigation>> Get()
