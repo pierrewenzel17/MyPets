@@ -41,5 +41,10 @@ namespace MyPetsApp.Services
             return await ws.CreateInvestigationPersonAsync(Map(investigationPerson));
         }
 
+        public async Task<InvestigationPersonDto> Update(int id, InvestigationPerson investigation)
+        {
+            PersonWebService ws = new();
+            return await ws.UpdateInvestigationPersonAsync(id, Map(investigation));
+        }
     }
 }

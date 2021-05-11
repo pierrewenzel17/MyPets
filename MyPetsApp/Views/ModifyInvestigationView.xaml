@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="MyPetsApp.Views.ModifyInvestigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyPetsApp.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1100">
+    <Border BorderThickness="0" Background="White" Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne plaignante :" FontSize="12" Margin="0 20 0 0"/>
+                    <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
+                             x:Name="tab_Nom_p"
+                             Text="{Binding InvestigationPlaintiffId.LastName}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
+                             x:Name="tab_Prenom_p"
+                             Text="{Binding InvestigationPlaintiffId.FirstName}"
+                             Margin="10,0,0,0"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
+                                            x:Name="tab_Adresse_p"
+                                            Text="{Binding InvestigationPlaintiffId.Address}"
+                                            Height="40" Width="160" FontSize="12"
+                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
+                             x:Name="tab_CodePostal_p"
+                             Text="{Binding InvestigationPlaintiffId.ZipCode}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
+                             x:Name="tab_Ville_p"
+                             Text="{Binding InvestigationPlaintiffId.City}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
+                             x:Name="tab_Mail_p"
+                             Text="{Binding InvestigationPlaintiffId.Email}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
+                             x:Name="tab_Telephone_p"
+                             Text="{Binding InvestigationPlaintiffId.PhoneNumber}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne suspecté :" FontSize="12" Margin="0 20 0 0"/>
+                    <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
+                         x:Name="tab_Nom_s"
+                         Text="{Binding InvestigationOffenderId.LastName}"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
+                         x:Name="tab_Prenom_s"
+                         Text="{Binding InvestigationOffenderId.FirstName}"
+                         Margin="10,0,0,0"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
+                                        x:Name="tab_Adresse_s"
+                                        Text="{Binding InvestigationOffenderId.Address}"
+                                        Height="40" Width="160" FontSize="12"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
+                         x:Name="tab_CodePostal_s"
+                         Text="{Binding InvestigationOffenderId.ZipCode}"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
+                         x:Name="tab_Ville_s"
+                         Text="{Binding InvestigationOffenderId.City}"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
+                             x:Name="tab_Mail_s"
+                             Text="{Binding InvestigationOffenderId.Email}"
+                             Height="40" Width="160" FontSize="12"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
+                         x:Name="tab_Telephone_s"
+                         Text="{Binding InvestigationOffenderId.PhoneNumber}"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Information de l'enquête :" FontSize="12" Margin="0 20 0 0"/>
+                    <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Raison"
+                         x:Name="tab_raison"
+                         Text="{Binding Reason}"
+                         Height="40" Width="320" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Race"
+                         x:Name="tab_breed"
+                         Text="{Binding Breed}"
+                         Margin="10,0,0,0"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Nombre d'animaux"
+                         x:Name="tab_nb_pet"
+                         Text="{Binding NumberOfPets}"
+                         Height="40" Width="160" FontSize="12"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
+                    <ComboBox Grid.Column="0" Grid.Row="3"
+                          x:Name="tab_investigator"
+                          Height="50" Width="200" FontSize="12"
+                          ItemsSource="{Binding Path=Persons}"
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                          materialDesign:HintAssist.Hint="Délégué enquêteur"
+                          Margin="0,20,0,0"
+                          SelectedValuePath="{Binding HolderInvestigatorId.PersonId}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                <Run Text="{Binding FirstName}" />
+                                <Run Text="{Binding LastName}" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBox Text="{Binding InvestigationOffenderId.InvestigationPersonId}"
+                             x:Name="tab_SuspectID_tb"
+                             Visibility="Hidden" Cursor="IBeam"/>
+                    <TextBox Text="{Binding InvestigationPlaintiffId.InvestigationPersonId}"
+                             x:Name="tab_Plaignant_tb"
+                             Visibility="Hidden" Cursor="IBeam"/>
+                    <TextBox Text="{Binding InvestigationId}"
+                             x:Name="tab_Investigation_tb"
+                             Visibility="Hidden" Cursor="IBeam"/>
+
+                </Grid>
+            </StackPanel>
+
+            <Button 
+                Grid.Row="1"
+                Grid.Column="2"
+                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                ToolTip="MaterialDesignFloatingActionMiniDarkButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Height="30"
+                Width="30"
+                Background="Orange" 
+                BorderBrush="Orange"
+                Cursor="Hand"
+                Click="ChangeInvestigationBtn_OnClick">
+                <materialDesign:PackIcon Kind="Pencil"/>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

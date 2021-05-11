@@ -24,6 +24,8 @@ namespace MyPetsApp.Models
             IsFinish = b ? "Cloturé" : "En Cours";
         }
 
+        public IEnumerable<Person> Persons { get; set; }
+
         #endregion
     }
 }

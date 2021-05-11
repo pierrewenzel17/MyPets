@@ -33,7 +33,6 @@ namespace MyPetsApp.Views
                 New_Prenom_s.Text == "" ||
                 New_Adresse_s.Text == "" ||
                 New_CodePostal_s.Text == "" ||
-                New_Departement_s.Text == "" ||
                 New_Mail_s.Text == "" ||
                 New_Telephone_s.Text == "" ||
                 New_Ville_s.Text == "" ||
@@ -41,7 +40,6 @@ namespace MyPetsApp.Views
                 New_Prenom_p.Text == "" ||
                 New_Adresse_p.Text == "" ||
                 New_CodePostal_p.Text == "" ||
-                New_Departement_p.Text == "" ||
                 New_Mail_p.Text == "" ||
                 New_Telephone_p.Text == "" ||
                 New_Ville_p.Text == "" ||
@@ -89,11 +87,11 @@ namespace MyPetsApp.Views
                     Reason = raison.Text
                 };
                 Task.Run(() => investigationService.Create(investigation)).GetAwaiter().GetResult();
+
                 New_Nom_s.Text = "";
                 New_Prenom_s.Text = "";
                 New_Adresse_s.Text = "";
                 New_CodePostal_s.Text = "";
-                New_Departement_s.Text = "";
                 New_Mail_s.Text = "";
                 New_Telephone_s.Text = "";
                 New_Ville_s.Text = "";
@@ -101,13 +99,13 @@ namespace MyPetsApp.Views
                 New_Prenom_p.Text = "";
                 New_Adresse_p.Text = "";
                 New_CodePostal_p.Text = "";
-                New_Departement_p.Text = "";
                 New_Mail_p.Text = "";
                 New_Telephone_p.Text = "";
                 New_Ville_p.Text = "";
                 breed.Text = "";
                 nb_pet.Text = "";
                 raison.Text = "";
+
                 investigator.ItemsSource = Task.Run(() => new PersonService().Get()).GetAwaiter().GetResult();
                 MessageBox.Show("Création bien effectuée", "Création d'une enquête", MessageBoxButton.OK, MessageBoxImage.Information);
             }

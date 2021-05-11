@@ -29,6 +29,8 @@ namespace MyPetsApp.Services
             investigation.InvestigationOffenderId = await ips.GetInvestigationPerson(investigationDto.InvestigationOffenderId);
             investigation.InvestigationPlaintiffId = await ips.GetInvestigationPerson(investigationDto.InvestigationPlaintiffId);
 
+            investigation.Persons = await ps.Get();
+
             return investigation;
         }
 
@@ -65,6 +67,20 @@ namespace MyPetsApp.Services
             foreach (var investigationDto in dtos)
                 investigations.Add(await Map(investigationDto));
             return investigations;
+        }
+
+        public async Task Update(Investigation investigation)
+        {
+            InvestigationPersonService ips = new();
+            if(investigation.InvestigationOffenderId.InvestigationPersonId is not null)
+                await ips.Update((int)investigation.InvestigationOffenderId.InvestigationPersonId, investigation.InvestigationOffenderId);
+
+            if (investigation.InvestigationPlaintiffId.InvestigationPersonId is not null)
+                await ips.Update((int)investigation.InvestigationPlaintiffId.InvestigationPersonId, investigation.InvestigationPlaintiffId);
+
+            InvestigationWebService iws = new();
+            if (investigation.InvestigationId is not null)
+                await iws.UpdateInvestigationAsync((int)investigation.InvestigationId, Map(investigation));
         }
     }
 }

@@ -46,39 +46,35 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne plaignante :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne plaignante :" FontSize="20" Margin="0 20 0 0"/>
                 <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
                          x:Name="New_Nom_p"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
                          x:Name="New_Prenom_p"
                          Margin="10,0,0,0"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
                                         x:Name="New_Adresse_p"
-                                        Height="60" Width="160" FontSize="12"
+                                        Height="60" Width="160" FontSize="20"
                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
                          x:Name="New_CodePostal_p"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
                          x:Name="New_Ville_p"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
-                <TextBox Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Département"
-                         x:Name="New_Departement_p"
-                         Height="60" Width="160" FontSize="12"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
                          x:Name="New_Mail_p"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
                          x:Name="New_Telephone_p"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </Grid>
         </StackPanel>
@@ -97,39 +93,35 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne suspecté :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Personne suspecté :" FontSize="20" Margin="0 20 0 0"/>
                 <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Nom"
                          x:Name="New_Nom_s"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom"
                          x:Name="New_Prenom_s"
                          Margin="10,0,0,0"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Adresse"
                                         x:Name="New_Adresse_s"
-                                        Height="60" Width="160" FontSize="12"
+                                        Height="60" Width="160" FontSize="20"
                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Code postal"
                          x:Name="New_CodePostal_s"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Ville"
                          x:Name="New_Ville_s"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
-                <TextBox Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Département"
-                         x:Name="New_Departement_s"
-                         Height="60" Width="160" FontSize="12"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Email" 
                          x:Name="New_Mail_s"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="N° de téléphone" 
                          x:Name="New_Telephone_s"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="160" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </Grid>
         </StackPanel>
@@ -148,23 +140,23 @@
                 </Grid.RowDefinitions>
 
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Information de l'enquête :" FontSize="12" Margin="0 20 0 0"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Information de l'enquête :" FontSize="20" Margin="0 20 0 0"/>
                 <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Raison"
                          x:Name="raison"
-                         Height="60" Width="320" FontSize="12"
+                         Height="60" Width="320" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Race"
                          x:Name="breed"
                          Margin="10,0,0,0"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="140" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <TextBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Nombre d'animaux"
                          x:Name="nb_pet"
-                         Height="60" Width="160" FontSize="12"
+                         Height="60" Width="180" FontSize="20"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam"/>
                 <ComboBox Grid.Column="0" Grid.Row="3"
                           x:Name="investigator"
-                          Height="60" Width="160" FontSize="12"
+                          Height="60" Width="200" FontSize="20"
                           ItemsSource="{Binding Path=Persons}"
                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
                           materialDesign:HintAssist.Hint="Délégué enquêteur"

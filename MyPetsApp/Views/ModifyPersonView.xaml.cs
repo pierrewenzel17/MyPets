@@ -82,7 +82,7 @@ namespace MyPetsApp.Views
             }
 
             //Hierarchie
-            if (tab_Hierarchie_cb.Text == "" || tab_Hierarchie_cb.Text != "Salarié" || tab_Hierarchie_cb.Text != "Bénévole")
+            if (tab_Hierarchie_cb.Text == "" || (tab_Hierarchie_cb.Text != "Salarié" & tab_Hierarchie_cb.Text != "Bénévole"))
             {
                 messagebox += "\n- Hierarchie invalide : Saisir Salarié OU Bénévole";
             }
