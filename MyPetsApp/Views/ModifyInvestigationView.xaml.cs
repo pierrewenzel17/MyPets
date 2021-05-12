@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,8 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using MyPetsApp.Models;
 using MyPetsApp.Services;
+using Path = System.IO.Path;
 
 namespace MyPetsApp.Views
 {
@@ -185,6 +188,24 @@ namespace MyPetsApp.Views
                 };
 
                 Task.Run(() => InvServ.Update(investigation)).GetAwaiter().GetResult();
+            }
+        }
+
+        private async void AddFile(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new OpenFileDialog();
+            bool? response = openFileDialog.ShowDialog();
+            if (response == true)
+            {
+                string filepath = openFileDialog.FileName;
+                byte[] bytes = System.IO.File.ReadAllBytes(filepath);
+                InvestigationService serv  = new();
+
+                var doc = await serv.AttachFile(int.Parse(tab_Investigation_tb.Text), bytes);
+                
+                File.WriteAllBytes(Path.GetTempPath()+ "\\image.jpeg", doc.File);
+
+                FileName.Text = filepath;
             }
         }
     }

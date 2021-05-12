@@ -189,6 +189,23 @@
                 </Grid>
             </StackPanel>
 
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <Button Content="Ajouter un Fichier"
+                        Click="AddFile"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nom du Fichier"
+                        x:Name="FileName" VerticalAlignment="Center"/>
+                    <materialDesign:PopupBox
+                        StaysOpen="True"
+                        IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
+                        <StackPanel Orientation="Vertical">
+                            <Button Content="Télécharger"/>
+                            <Button Content="Supprimer"/>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+            </StackPanel>
+
             <Button 
                 Grid.Row="1"
                 Grid.Column="2"

@@ -118,7 +118,7 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock x:Name="New_NeedInfo"
-                           Text="Veilliez à remplir tous les champs !"
+                           Text="Veuillez remplir tous les champs !"
                            Foreground="Red"
                            Height="20" Width="250" FontSize="15"
                            Visibility="Hidden"

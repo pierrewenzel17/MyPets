@@ -82,5 +82,19 @@ namespace MyPetsApp.Services
             if (investigation.InvestigationId is not null)
                 await iws.UpdateInvestigationAsync((int)investigation.InvestigationId, Map(investigation));
         }
+
+        public async Task<InvestigationDocumentDto> AttachFile(int id, byte[] file)
+        {
+            FileService fs = new();
+            var doc = await fs.CreateFile(file);
+            InvestigationWebService iws = new();
+            if (doc.InvestigationDocumentId is not null)
+            {
+                InvestigationToInvestigationDocumentDto convert = new(null, id, (int) doc.InvestigationDocumentId);
+                await iws.AttachDocumentAsync(convert);
+            }
+
+            return doc;
+        }
     }
 }
